@@ -1,877 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMate | Local Services Made Easy</title>
 
-    <title>TaskMate — Trusted Local Services</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-    <link rel="stylesheet" href="style.css">
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="ishan.css">
 </head>
-
 <body>
 
-<!-- ================= HEADER ================= -->
+    <header class="navbar">
+        <a href="#" class="logo"><span>✦</span> TaskMate</a>
 
-<header class="header">
-
-    <div class="container nav">
-
-        <a href="#" class="brand">
-            <span class="brand-icon">✦</span>
-            <span>Task<span>Mate</span></span>
-        </a>
-
-        <nav>
+        <nav id="navLinks">
             <a href="#services">Services</a>
-            <a href="#pros">Top Pros</a>
+            <a href="#professionals">Professionals</a>
             <a href="#how">How it works</a>
         </nav>
 
         <div class="nav-actions">
-
-            <button class="location-btn" id="locationBtn">
-                📍 <span id="currentCity">Bengaluru</span>⌄
-            </button>
-
-            <button class="login-btn" id="loginBtn">
-                Log in
-            </button>
-
-            <button class="primary-btn small" id="signupBtn">
-                Sign up
-            </button>
-
-            <button class="menu-btn" id="menuBtn">
-                ☰
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- MOBILE NAV -->
-
-    <div id="mobileNav" class="mobile-nav">
-
-        <a href="#services">Services</a>
-        <a href="#pros">Top Pros</a>
-        <a href="#how">How it works</a>
-
-        <button id="mobileLogin">
-            Log in
-        </button>
-
-        <button id="mobileSignup">
-            Sign up
-        </button>
-
-    </div>
-
-
-    <!-- LOCATION MENU -->
-
-    <div id="locationMenu" class="location-menu">
-
-        <button data-city="Bengaluru">
-            Bengaluru
-        </button>
-
-        <button data-city="Mumbai">
-            Mumbai
-        </button>
-
-        <button data-city="Delhi">
-            Delhi
-        </button>
-
-        <button data-city="Chandigarh">
-            Chandigarh
-        </button>
-
-        <button data-city="Chennai">
-            Chennai
-        </button>
-
-    </div>
-
-</header>
-
-
-<main>
-
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-    <div class="hero-glow glow-one"></div>
-    <div class="hero-glow glow-two"></div>
-
-    <div class="container hero-content">
-
-        <div class="trust-pill">
-            ✓ Secure prepaid booking · Payment protected
-        </div>
-
-        <h1>
-            Get things done.
-            <br>
-            <span>Without the hassle.</span>
-        </h1>
-
-        <p>
-            Find trusted local professionals, see the price upfront,
-            and pay securely only when the job is confirmed.
-        </p>
-
-
-        <!-- SEARCH -->
-
-        <div class="search-box">
-
-            <div class="search-field">
-
-                <span>⌕</span>
-
-                <input
-                    id="searchInput"
-                    type="text"
-                    placeholder="What service do you need?"
-                >
-
-            </div>
-
-
-            <div class="search-field location-field">
-
-                <span>📍</span>
-
-                <select id="citySelect">
-
-                    <option>Bengaluru</option>
-                    <option>Mumbai</option>
-                    <option>Delhi</option>
-                    <option>Chandigarh</option>
-                    <option>Chennai</option>
-
-                </select>
-
-            </div>
-
-
-            <button
-                class="primary-btn search-btn"
-                id="findBtn"
-            >
-                Find professionals
-            </button>
-
-        </div>
-
-
-        <!-- POPULAR -->
-
-        <div class="popular">
-
-            <span>Popular:</span>
-
-            <button data-search="AC Service">
-                AC Service
-            </button>
-
-            <button data-search="Cleaning">
-                Home Cleaning
-            </button>
-
-            <button data-search="Plumbing">
-                Plumbing
-            </button>
-
-            <button data-search="Electrical">
-                Electrical
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= STATS ================= -->
-
-<section class="stats">
-
-    <div class="container stats-grid">
-
-        <div>
-            <strong>10K+</strong>
-            <span>Verified professionals</span>
-        </div>
-
-        <div>
-            <strong>4.9/5</strong>
-            <span>Average customer rating</span>
-        </div>
-
-        <div>
-            <strong>50K+</strong>
-            <span>Tasks completed</span>
-        </div>
-
-        <div>
-            <strong>₹0</strong>
-            <span>Surprise booking fees</span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= SERVICES ================= -->
-
-<section id="services" class="section">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div>
-
-                <span class="eyebrow">
-                    EXPLORE SERVICES
-                </span>
-
-                <h2>
-                    Whatever you need,
-                    we've got a pro.
-                </h2>
-
-            </div>
-
-            <button
-                class="text-btn"
-                id="showAllBtn"
-            >
-                View all →
-            </button>
-
-        </div>
-
-
-        <div
-            id="categoryGrid"
-            class="category-grid"
-        ></div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= PROFESSIONALS ================= -->
-
-<section id="pros" class="section pros-section">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div>
-
-                <span class="eyebrow">
-                    VERIFIED NEAR YOU
-                </span>
-
-                <h2>
-                    Top professionals in
-                    <span id="prosCity">
-                        Bengaluru
-                    </span>
-                </h2>
-
-                <p>
-                    Real work history. Real reviews.
-                    Transparent pricing.
-                </p>
-
-            </div>
-
-            <div
-                class="result-count"
-                id="resultCount"
-            ></div>
-
-        </div>
-
-
-        <div
-            id="prosGrid"
-            class="pros-grid"
-        ></div>
-
-
-        <div
-            id="emptyState"
-            class="empty-state hidden"
-        >
-
-            <div>⌕</div>
-
-            <h3>
-                No professionals found
-            </h3>
-
-            <p>
-                Try another service or clear your search.
-            </p>
-
-            <button
-                class="secondary-btn"
-                id="clearSearch"
-            >
-                Clear search
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= HOW IT WORKS ================= -->
-
-<section id="how" class="section how-section">
-
-    <div class="container">
-
-        <div class="center-heading">
-
-            <span class="eyebrow">
-                HOW TASKMATE WORKS
-            </span>
-
-            <h2>
-                Simple. Safe. Done.
-            </h2>
-
-        </div>
-
-
-        <div class="steps">
-
-            <article class="step">
-
-                <div class="step-num">
-                    01
-                </div>
-
-                <div class="step-icon">
-                    ⌕
-                </div>
-
-                <h3>
-                    Choose your pro
-                </h3>
-
-                <p>
-                    Compare ratings, completed jobs,
-                    experience and verified work history.
-                </p>
-
-            </article>
-
-
-            <article class="step">
-
-                <div class="step-num">
-                    02
-                </div>
-
-                <div class="step-icon">
-                    ▣
-                </div>
-
-                <h3>
-                    Pay upfront
-                </h3>
-
-                <p>
-                    See your final price before booking.
-                    Your payment stays protected.
-                </p>
-
-            </article>
-
-
-            <article class="step">
-
-                <div class="step-num">
-                    03
-                </div>
-
-                <div class="step-icon">
-                    ✓
-                </div>
-
-                <h3>
-                    Job gets done
-                </h3>
-
-                <p>
-                    Confirm the work is complete and
-                    the protected payment is released.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= REVIEWS ================= -->
-
-<section class="section reviews-section">
-
-    <div class="container">
-
-        <div class="center-heading">
-
-            <span class="eyebrow">
-                CUSTOMER STORIES
-            </span>
-
-            <h2>
-                Loved by people who hate
-                service hassles.
-            </h2>
-
-        </div>
-
-
-        <div
-            id="reviewsGrid"
-            class="reviews-grid"
-        ></div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= CTA ================= -->
-
-<section class="cta-section">
-
-    <div class="container cta">
-
-        <div>
-
-            <span class="eyebrow">
-                ARE YOU A PROFESSIONAL?
-            </span>
-
-            <h2>
-                Turn your skills into
-                your next customer.
-            </h2>
-
-            <p>
-                Build a verified profile and get
-                booked by customers in your area.
-            </p>
-
-        </div>
-
-        <button
-            class="primary-btn"
-            id="proSignup"
-        >
-            Join as a professional →
-        </button>
-
-    </div>
-
-</section>
-
-</main>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-    <div class="container footer-grid">
-
-        <div>
-
-            <a class="brand footer-brand" href="#">
-                <span class="brand-icon">✦</span>
-                Task<span>Mate</span>
-            </a>
-
-            <p>
-                Trusted local services,
-                without the uncertainty.
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h4>For customers</h4>
-
-            <a href="#services">
-                Browse services
-            </a>
-
-            <a href="#how">
-                How it works
-            </a>
-
-            <a href="#pros">
-                Find a pro
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h4>For professionals</h4>
-
-            <a href="#" id="footerPro">
-                Join TaskMate
-            </a>
-
-            <a href="#">
-                Pro resources
-            </a>
-
-            <a href="#">
-                Success stories
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h4>Support</h4>
-
-            <a href="#" id="helpLink">
-                Help center
-            </a>
-
-            <a href="#">
-                Trust & Safety
-            </a>
-
-            <a href="#">
-                Privacy
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="container footer-bottom">
-
-        <span>
-            © 2026 TaskMate. Demo website.
-        </span>
-
-        <span>
-            Made with ♥ in India
-        </span>
-
-    </div>
-
-</footer>
-
-
-<!-- ================= BOOKING MODAL ================= -->
-
-<div id="bookingModal" class="modal">
-
-    <div class="modal-card">
-
-        <button
-            class="close"
-            data-close="bookingModal"
-        >
-            ×
-        </button>
-
-
-        <div id="bookingContent">
-
-            <span class="eyebrow">
-                SECURE BOOKING
-            </span>
-
-            <h2 id="bookingName">
-                Professional
-            </h2>
-
-            <p
-                id="bookingRole"
-                class="muted"
-            ></p>
-
-
-            <div class="price-box">
-
-                <span>
-                    Total before payment
-                </span>
-
-                <strong id="bookingPrice"></strong>
-
-            </div>
-
-
-            <div class="protection">
-
-                <div>✓</div>
-
-                <p>
-                    <strong>
-                        Payment protection
-                    </strong>
-
-                    <br>
-
-                    Your money stays protected
-                    until the task is confirmed complete.
-                </p>
-
-            </div>
-
-
-            <div class="protection">
-
-                <div>✓</div>
-
-                <p>
-                    <strong>
-                        Dispute protection
-                    </strong>
-
-                    <br>
-
-                    You can raise an issue before
-                    protected funds are released.
-                </p>
-
-            </div>
-
-
-            <button
-                class="primary-btn full"
-                id="confirmBooking"
-            >
-                Confirm protected booking
-            </button>
-
-            <small>
-                Demo only — no real payment is processed.
-            </small>
-
-        </div>
-
-
-        <!-- SUCCESS -->
-
-        <div
-            id="bookingSuccess"
-            class="success hidden"
-        >
-
-            <div class="success-icon">
-                ✓
-            </div>
-
-            <h2>
-                Booking confirmed!
-            </h2>
-
-            <p>
-                Your booking with
-                <strong id="successName"></strong>
-                has been protected.
-            </p>
-
-            <p class="booking-id">
-                Booking ID:
-                <strong id="bookingId"></strong>
-            </p>
-
-
-            <button
-                class="secondary-btn full"
-                id="openDispute"
-            >
-                Report an issue
-            </button>
-
-            <button
-                class="primary-btn full"
-                data-close="bookingModal"
-            >
-                Done
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ================= DISPUTE MODAL ================= -->
-
-<div id="disputeModal" class="modal">
-
-    <div class="modal-card">
-
-        <button
-            class="close"
-            data-close="disputeModal"
-        >
-            ×
-        </button>
-
-        <span class="eyebrow red">
-            BUYER PROTECTION
-        </span>
-
-        <h2>
-            Raise a dispute
-        </h2>
-
-        <p class="muted">
-            Tell us what happened and we'll
-            record the issue.
-        </p>
-
-
-        <label>
-
-            Reason
-
-            <select id="disputeReason">
-
-                <option>
-                    Job not completed
-                </option>
-
-                <option>
-                    Quality issue
-                </option>
-
-                <option>
-                    Price differs from booking
-                </option>
-
-                <option>
-                    Professional did not arrive
-                </option>
-
-                <option>
-                    Other
-                </option>
-
+            <select id="citySelect" aria-label="Choose city">
+                <option value="All">All Cities</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Rajpura">Rajpura</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
             </select>
-
-        </label>
-
-
-        <label>
-
-            Details
-
-            <textarea
-                id="disputeNote"
-                placeholder="Briefly describe the issue..."
-            ></textarea>
-
-        </label>
-
-
-        <button
-            class="danger-btn full"
-            id="submitDispute"
-        >
-            Submit dispute
-        </button>
-
-        <small>
-            Demo only — this does not contact a real support team.
-        </small>
-
-    </div>
-
-</div>
-
-
-<!-- ================= INFO MODAL ================= -->
-
-<div id="infoModal" class="modal">
-
-    <div class="modal-card info-card">
-
-        <button
-            class="close"
-            data-close="infoModal"
-        >
-            ×
-        </button>
-
-        <div class="info-icon">
-            ✦
+            <a href="#services" class="nav-button">Find a pro ↗</a>
         </div>
 
-        <h2 id="infoTitle">
-            Welcome to TaskMate
-        </h2>
+        <button class="menu-button" id="menuButton" aria-label="Toggle menu">☰</button>
+    </header>
 
-        <p id="infoText"></p>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="eyebrow"><span class="live-dot"></span> YOUR NEIGHBOURHOOD, YOUR HELP</div>
 
-        <button
-            class="primary-btn full"
-            data-close="infoModal"
-        >
-            Got it
-        </button>
+                <h1>Life gets busy.<br><span>We've got you.</span></h1>
 
+                <p class="hero-text">
+                    From fixing a leaky tap to cleaning your entire home,
+                    find trusted local professionals in just a few clicks.
+                </p>
+
+                <form id="searchForm" class="search-box">
+                    <span class="search-icon">⌕</span>
+                    <input id="searchInput" type="text"
+                           placeholder="What do you need help with?"
+                           aria-label="Search services">
+                    <button type="submit">Find help →</button>
+                </form>
+
+                <div class="popular">
+                    <span>Popular:</span>
+                    <button class="popular-tag" data-search="cleaning">Home cleaning</button>
+                    <button class="popular-tag" data-search="plumbing">Plumbing</button>
+                    <button class="popular-tag" data-search="electrician">Electrician</button>
+                </div>
+
+                <div class="hero-stats">
+                    <div><strong>500+</strong><span>Local pros</span></div>
+                    <div><strong>4.9/5</strong><span>Customer rating</span></div>
+                    <div><strong>10k+</strong><span>Tasks completed</span></div>
+                </div>
+            </div>
+
+            <div class="hero-art">
+                <div class="art-circle"></div>
+                <div class="floating-card card-top">
+                    <span class="floating-icon">✓</span>
+                    <div><strong>Job well done!</strong><small>Another happy customer</small></div>
+                </div>
+
+                <div class="hero-illustration">
+                    <div class="illustration-sun"></div>
+                    <div class="illustration-house">⌂</div>
+                    <div class="illustration-tools">🔧</div>
+                    <div class="illustration-person">👨‍🔧</div>
+                </div>
+
+                <div class="floating-card card-bottom">
+                    <div class="avatar-stack"><span>👨🏻</span><span>👩🏽</span><span>👨🏾</span></div>
+                    <div><strong>Good people. Great work.</strong><small>Help is closer than you think.</small></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-strip">
+            <span>✦ Vetted professionals</span>
+            <span>◈ Transparent pricing</span>
+            <span>♡ Easy booking</span>
+            <span>✓ Support when you need it</span>
+        </section>
+
+        <section class="section" id="services">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">WHAT CAN WE HELP WITH?</span>
+                    <h2>Small tasks. <span>Big relief.</span></h2>
+                    <p>Find the right person for the job.</p>
+                </div>
+                <span class="result-count" id="resultCount"></span>
+            </div>
+
+            <div class="category-grid" id="categoryGrid">
+                <button class="category-card active" data-category="All">
+                    <span class="category-icon purple">✦</span>
+                    <strong>All services</strong><small>Explore everything</small>
+                </button>
+                <button class="category-card" data-category="Cleaning">
+                    <span class="category-icon peach">⌂</span>
+                    <strong>Home cleaning</strong><small>Freshen your space</small>
+                </button>
+                <button class="category-card" data-category="Plumbing">
+                    <span class="category-icon blue">♧</span>
+                    <strong>Plumbing</strong><small>Fix leaks and more</small>
+                </button>
+                <button class="category-card" data-category="Electrical">
+                    <span class="category-icon yellow">ϟ</span>
+                    <strong>Electrical</strong><small>Power things up</small>
+                </button>
+                <button class="category-card" data-category="Repair">
+                    <span class="category-icon green">⚒</span>
+                    <strong>Repairs</strong><small>Make it work again</small>
+                </button>
+                <button class="category-card" data-category="Beauty">
+                    <span class="category-icon pink">♡</span>
+                    <strong>Beauty</strong><small>Self-care at home</small>
+                </button>
+            </div>
+        </section>
+
+        <section class="section professionals-section" id="professionals">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">GOOD PEOPLE, GREAT WORK</span>
+                    <h2>Meet your local <span>pros.</span></h2>
+                    <p>Choose a professional who fits your needs and budget.</p>
+                </div>
+                <button class="outline-button" id="clearFilters">Show everyone ↗</button>
+            </div>
+
+            <div class="pro-grid" id="proGrid"></div>
+            <p class="empty-message" id="emptyMessage" hidden>
+                No matching professionals found. Try another service or city.
+            </p>
+        </section>
+
+        <section class="how-section" id="how">
+            <div class="how-intro">
+                <span class="eyebrow">NO STRESS. JUST PROGRESS.</span>
+                <h2>Getting things done<br>is <span>that simple.</span></h2>
+                <p>Three easy steps between you and a job well done.</p>
+            </div>
+
+            <div class="steps">
+                <article class="step">
+                    <span class="step-number">01</span>
+                    <div class="step-icon">⌕</div>
+                    <h3>Find your service</h3>
+                    <p>Search what you need and explore local professionals.</p>
+                </article>
+                <article class="step">
+                    <span class="step-number">02</span>
+                    <div class="step-icon">♡</div>
+                    <h3>Choose your pro</h3>
+                    <p>Compare ratings, prices and specialties before booking.</p>
+                </article>
+                <article class="step">
+                    <span class="step-number">03</span>
+                    <div class="step-icon">✓</div>
+                    <h3>Get it done</h3>
+                    <p>Confirm your booking and get your task taken care of.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div>
+                <span class="eyebrow">READY WHEN YOU ARE</span>
+                <h2>Your to-do list called.<br>It wants a day off.</h2>
+                <p>Find a helping hand and make today a little easier.</p>
+            </div>
+            <a href="#services" class="cta-button">Find your TaskMate →</a>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#" class="logo"><span>✦</span> TaskMate</a>
+        <p>Making everyday life a little easier.</p>
+        <span>© 2026 TaskMate. Student project demo.</span>
+    </footer>
+
+    <!-- Booking popup -->
+    <div class="modal-overlay" id="bookingModal" role="dialog"
+         aria-modal="true" aria-labelledby="modalTitle" hidden>
+        <div class="modal">
+            <button class="modal-close" id="closeModal" aria-label="Close">×</button>
+            <span class="eyebrow">LET'S GET IT DONE</span>
+            <h2 id="modalTitle">Book your professional</h2>
+            <p id="selectedProText">You're one step away from getting help.</p>
+
+            <form id="bookingForm">
+                <label for="customerName">Your name</label>
+                <input id="customerName" type="text" placeholder="Enter your name" required>
+
+                <label for="customerPhone">Phone number</label>
+                <input id="customerPhone" type="tel" placeholder="Enter your phone number"
+                       pattern="[0-9+\-\s]{10,15}" required>
+
+                <label for="bookingDate">Preferred date</label>
+                <input id="bookingDate" type="date" required>
+
+                <label for="bookingAddress">Your address / area</label>
+                <textarea id="bookingAddress" rows="2"
+                          placeholder="Where should the professional come?" required></textarea>
+
+                <button class="primary-button full-width" type="submit">Confirm demo booking →</button>
+                <p class="form-note">Demo only: no real booking or payment will be made.</p>
+            </form>
+        </div>
     </div>
 
-</div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-
-<div id="toast" class="toast"></div>
-
-
-
-<script src="script.js"></script>
-
+    <!-- Connect JavaScript -->
+    <script src="ishan.js"></script>
 </body>
 </html>
