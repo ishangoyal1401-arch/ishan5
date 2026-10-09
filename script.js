@@ -1,976 +1,500 @@
-const data = {
+// =====================================
+// TASKMATE - WEBSITE FUNCTIONALITY
+// =====================================
 
-    Bengaluru: {
-
-        categories: [
-            ["AC Service", "❄", "Repairs & installation"],
-            ["Home Cleaning", "✦", "Deep & regular cleaning"],
-            ["Plumbing", "◈", "Leaks, pipes & fittings"],
-            ["Electrical", "ϟ", "Electricians & repairs"],
-            ["Painting", "▰", "Interior & exterior"],
-            ["Appliance Repair", "⚙", "Home appliances"],
-            ["Carpentry", "⌂", "Furniture & woodwork"],
-            ["Pest Control", "◉", "Safe pest treatment"]
-        ],
-
-        pros: [
-
-            ["Rahul S.", "Master Electrician", "4.9", 124,
-                "₹450/hr", "RS", "186", "6 yrs", "92%", "Electrical"],
-
-            ["Priya J.", "Deep Cleaning Specialist", "5.0", 342,
-                "₹2,650/job", "PJ", "428", "8 yrs", "95%", "Home Cleaning"],
-
-            ["Kiran T.", "Expert Plumber", "4.8", 89,
-                "₹400/hr", "KT", "137", "5 yrs", "89%", "Plumbing"],
-
-            ["Vikram L.", "AC Repair Technician", "4.9", 210,
-                "₹299 inspection", "VL", "173", "5 yrs", "87%", "AC Service"],
-
-            ["Neha A.", "Home Painter", "4.8", 167,
-                "₹18/sqft", "NA", "214", "7 yrs", "91%", "Painting"],
-
-            ["Arjun K.", "Appliance Specialist", "4.9", 198,
-                "₹350 visit", "AK", "289", "6 yrs", "94%", "Appliance Repair"]
-
-        ],
-
-        reviews: [
-
-            [
-                "Ananya R.",
-                "Home Cleaning",
-                "The upfront price and protected payment made the whole experience incredibly easy."
-            ],
-
-            [
-                "Suresh M.",
-                "Plumbing",
-                "Kiran arrived on time, fixed the issue quickly, and I knew exactly what I was paying."
-            ],
-
-            [
-                "Deepak W.",
-                "Electrical",
-                "Finding a verified electrician took less than five minutes."
-            ]
-
-        ]
-
+const professionals = [
+    {
+        id: 1,
+        name: "Aman Sharma",
+        service: "Home cleaning",
+        category: "Cleaning",
+        city: "Chandigarh",
+        price: 499,
+        rating: 4.9,
+        reviews: 128,
+        emoji: "🧹",
+        color: "#f8e8d9",
+        description: "Deep cleaning, kitchens and everyday home care."
     },
-
-
-    Mumbai: {
-
-        categories: [
-            ["Pest Control", "◉", "Homes & offices"],
-            ["Sofa Cleaning", "▣", "Furniture cleaning"],
-            ["Carpentry", "⌂", "Custom furniture"],
-            ["Appliance Repair", "⚙", "Repairs & service"],
-            ["AC Service", "❄", "Cooling solutions"],
-            ["Painting", "▰", "Painting & polishing"],
-            ["Plumbing", "◈", "Repairs & fittings"],
-            ["Home Cleaning", "✦", "Deep cleaning"]
-        ],
-
-        pros: [
-
-            ["Amit P.", "Pest Control Expert", "4.8", 412,
-                "₹1,200/job", "AP", "512", "9 yrs", "94%", "Pest Control"],
-
-            ["Sneha M.", "Sofa Cleaning", "4.9", 156,
-                "₹800/seat", "SM", "219", "6 yrs", "90%", "Sofa Cleaning"],
-
-            ["Ravi D.", "Carpenter", "4.7", 92,
-                "₹1,500/day", "RD", "173", "5 yrs", "87%", "Carpentry"],
-
-            ["Neha K.", "Appliance Repair", "5.0", 304,
-                "₹250 visit", "NK", "301", "7 yrs", "93%", "Appliance Repair"],
-
-            ["Dev P.", "AC Specialist", "4.9", 185,
-                "₹399 visit", "DP", "265", "8 yrs", "92%", "AC Service"],
-
-            ["Mehul S.", "Electrician", "4.8", 142,
-                "₹450/hr", "MS", "190", "5 yrs", "88%", "Electrical"]
-
-        ],
-
-        reviews: [
-
-            [
-                "Kunal B.",
-                "Pest Control",
-                "No hidden charges and the technician was professional from start to finish."
-            ],
-
-            [
-                "Meera J.",
-                "Carpentry",
-                "The protected payment gave me peace of mind during a three-day custom furniture job."
-            ],
-
-            [
-                "Rohit V.",
-                "Appliance Repair",
-                "Fast response and the final price matched exactly what I saw before booking."
-            ]
-
-        ]
-
+    {
+        id: 2,
+        name: "Rajesh Kumar",
+        service: "Plumbing expert",
+        category: "Plumbing",
+        city: "Rajpura",
+        price: 299,
+        rating: 4.8,
+        reviews: 96,
+        emoji: "🔧",
+        color: "#e1edfc",
+        description: "Leak repairs, taps, pipes and bathroom fittings."
     },
-
-
-    Delhi: {
-
-        categories: [
-            ["Painting", "▰", "Interior & exterior"],
-            ["RO Service", "◈", "Water purifier service"],
-            ["Electrical", "ϟ", "Electrical repairs"],
-            ["Packers & Movers", "▣", "Local moving"],
-            ["AC Service", "❄", "Cooling solutions"],
-            ["Plumbing", "◈", "Repairs & fittings"],
-            ["Cleaning", "✦", "Home cleaning"],
-            ["Carpentry", "⌂", "Woodwork"]
-        ],
-
-        pros: [
-
-            ["Sandeep S.", "Professional Painter", "4.9", 220,
-                "₹15/sqft", "SS", "320", "8 yrs", "91%", "Painting"],
-
-            ["Geeta R.", "RO Water Service", "4.8", 185,
-                "₹499/job", "GR", "395", "5 yrs", "89%", "RO Service"],
-
-            ["Manoj K.", "Electrician", "4.9", 140,
-                "₹400/hr", "MK", "305", "7 yrs", "93%", "Electrical"],
-
-            ["Arjun V.", "Packers & Movers", "4.6", 75,
-                "₹4,500 base", "AV", "155", "6 yrs", "84%", "Packers & Movers"],
-
-            ["Pooja N.", "Home Cleaner", "4.9", 245,
-                "₹1,800/job", "PN", "410", "7 yrs", "94%", "Cleaning"],
-
-            ["Ravi K.", "AC Technician", "4.8", 119,
-                "₹350 visit", "RK", "198", "5 yrs", "88%", "AC Service"]
-
-        ],
-
-        reviews: [
-
-            [
-                "Nidhi G.",
-                "Painting",
-                "The team finished our entire floor and handled the final touch-ups without any drama."
-            ],
-
-            [
-                "Varun P.",
-                "RO Service",
-                "Very prompt service. The fixed ₹499 price made booking straightforward."
-            ],
-
-            [
-                "Pooja S.",
-                "Packers & Movers",
-                "Moving is stressful, but secure payment made hiring the team much easier."
-            ]
-
-        ]
-
+    {
+        id: 3,
+        name: "Priya Verma",
+        service: "Beauty at home",
+        category: "Beauty",
+        city: "Chandigarh",
+        price: 599,
+        rating: 5.0,
+        reviews: 84,
+        emoji: "💇🏻‍♀️",
+        color: "#f9e2ed",
+        description: "Convenient beauty and personal care services."
     },
-
-
-    Chandigarh: {
-
-        categories: [
-            ["Home Cleaning", "✦", "Deep & regular cleaning"],
-            ["AC Service", "❄", "Repairs & installation"],
-            ["Plumbing", "◈", "Leaks & fittings"],
-            ["Electrical", "ϟ", "Electrical repairs"],
-            ["Car Wash", "◉", "Doorstep car care"],
-            ["Painting", "▰", "Interior & exterior"],
-            ["Pest Control", "◉", "Safe treatment"],
-            ["Carpentry", "⌂", "Furniture & woodwork"]
-        ],
-
-        pros: [
-
-            ["Harpreet S.", "Home Cleaning Pro", "4.9", 187,
-                "₹1,499/job", "HS", "290", "6 yrs", "93%", "Home Cleaning"],
-
-            ["Aman G.", "AC Technician", "4.8", 126,
-                "₹349 visit", "AG", "208", "5 yrs", "90%", "AC Service"],
-
-            ["Simran K.", "Plumbing Expert", "4.9", 154,
-                "₹399/visit", "SK", "237", "7 yrs", "92%", "Plumbing"],
-
-            ["Gurpreet R.", "Electrician", "4.8", 103,
-                "₹399/hr", "GR", "176", "6 yrs", "88%", "Electrical"],
-
-            ["Manpreet S.", "Car Detailer", "5.0", 214,
-                "₹699/wash", "MS", "365", "8 yrs", "95%", "Car Wash"],
-
-            ["Jaspreet K.", "Painter", "4.9", 98,
-                "₹16/sqft", "JK", "145", "5 yrs", "90%", "Painting"]
-
-        ],
-
-        reviews: [
-
-            [
-                "Riya M.",
-                "Home Cleaning",
-                "Clean, punctual and exactly the price shown."
-            ],
-
-            [
-                "Karan S.",
-                "AC Service",
-                "The technician arrived the same day and the booking flow was super simple."
-            ],
-
-            [
-                "Navdeep J.",
-                "Plumbing",
-                "Good professional, clear pricing and no last-minute surprises."
-            ]
-
-        ]
-
+    {
+        id: 4,
+        name: "Vikram Singh",
+        service: "Electrician",
+        category: "Electrical",
+        city: "Delhi",
+        price: 349,
+        rating: 4.8,
+        reviews: 112,
+        emoji: "⚡",
+        color: "#fff0c8",
+        description: "Electrical repairs, lights, fans and installations."
     },
-
-
-    Chennai: {
-
-        categories: [
-            ["AC Service", "❄", "Repairs & installation"],
-            ["Home Cleaning", "✦", "Deep & regular cleaning"],
-            ["Plumbing", "◈", "Leaks & fittings"],
-            ["Inverter Service", "▣", "Power backup"],
-            ["Electrical", "ϟ", "Electrical repairs"],
-            ["Painting", "▰", "Painting & polishing"],
-            ["Appliance Repair", "⚙", "Home appliances"],
-            ["Pest Control", "◉", "Safe treatment"]
-        ],
-
-        pros: [
-
-            ["Karthik N.", "AC Installation & Repair", "4.9", 310,
-                "₹350 visit", "KN", "421", "9 yrs", "94%", "AC Service"],
-
-            ["Lakshmi M.", "Home Deep Cleaning", "5.0", 245,
-                "₹3,000/job", "LM", "515", "7 yrs", "92%", "Home Cleaning"],
-
-            ["Vijay R.", "Plumber", "4.7", 112,
-                "₹350/hr", "VR", "249", "4 yrs", "85%", "Plumbing"],
-
-            ["Anand T.", "Inverter Specialist", "4.8", 156,
-                "₹400 visit", "AT", "290", "6 yrs", "89%", "Inverter Service"],
-
-            ["Suresh P.", "Electrician", "4.9", 198,
-                "₹399/hr", "SP", "334", "8 yrs", "93%", "Electrical"],
-
-            ["Divya R.", "Appliance Repair", "4.8", 133,
-                "₹299 visit", "DR", "204", "5 yrs", "88%", "Appliance Repair"]
-
-        ],
-
-        reviews: [
-
-            [
-                "Saranya K.",
-                "AC Repair",
-                "Loved the transparent price and secure payment."
-            ],
-
-            [
-                "Ramesh C.",
-                "Inverter Repair",
-                "Accurate diagnosis and protected payment made the booking feel safe."
-            ],
-
-            [
-                "Gita P.",
-                "Home Cleaning",
-                "The house looked fantastic."
-            ]
-
-        ]
-
+    {
+        id: 5,
+        name: "Arjun Mehta",
+        service: "Home repairs",
+        category: "Repair",
+        city: "Mumbai",
+        price: 399,
+        rating: 4.7,
+        reviews: 76,
+        emoji: "🛠️",
+        color: "#e0f0e3",
+        description: "Furniture fixes, shelves and everyday repairs."
+    },
+    {
+        id: 6,
+        name: "Neha Gupta",
+        service: "Home cleaning",
+        category: "Cleaning",
+        city: "Delhi",
+        price: 549,
+        rating: 4.9,
+        reviews: 103,
+        emoji: "🧽",
+        color: "#f8e8d9",
+        description: "Reliable home cleaning with attention to detail."
+    },
+    {
+        id: 7,
+        name: "Sahil Bansal",
+        service: "Plumbing expert",
+        category: "Plumbing",
+        city: "Chandigarh",
+        price: 329,
+        rating: 4.8,
+        reviews: 67,
+        emoji: "🚿",
+        color: "#e1edfc",
+        description: "Quick help with leaking pipes and blocked drains."
+    },
+    {
+        id: 8,
+        name: "Rohit Malhotra",
+        service: "Electrician",
+        category: "Electrical",
+        city: "Mumbai",
+        price: 399,
+        rating: 4.9,
+        reviews: 91,
+        emoji: "💡",
+        color: "#fff0c8",
+        description: "Safe electrical maintenance and home installations."
+    },
+    {
+        id: 9,
+        name: "Meera Joshi",
+        service: "Beauty at home",
+        category: "Beauty",
+        city: "Rajpura",
+        price: 499,
+        rating: 4.8,
+        reviews: 58,
+        emoji: "💆🏻‍♀️",
+        color: "#f9e2ed",
+        description: "Personal care services from the comfort of home."
     }
+];
 
-};
+// Current website filters
+let selectedCategory = "All";
+let searchQuery = "";
+let selectedProfessional = null;
+let toastTimeout;
 
+// Get HTML elements
+const proGrid = document.getElementById("proGrid");
+const citySelect = document.getElementById("citySelect");
+const searchInput = document.getElementById("searchInput");
+const searchForm = document.getElementById("searchForm");
+const resultCount = document.getElementById("resultCount");
+const emptyMessage = document.getElementById("emptyMessage");
 
-let currentCity =
-    localStorage.getItem("taskmate-city") ||
-    "Bengaluru";
+const bookingModal = document.getElementById("bookingModal");
+const bookingForm = document.getElementById("bookingForm");
+const selectedProText = document.getElementById("selectedProText");
+const bookingDate = document.getElementById("bookingDate");
+const toast = document.getElementById("toast");
 
-let currentQuery = "";
+// =====================================
+// RENDER PROFESSIONAL CARDS
+// =====================================
 
-let activePro = null;
+function renderProfessionals() {
+    const selectedCity = citySelect.value;
 
+    const filteredProfessionals = professionals.filter(function (pro) {
+        const matchesCity =
+            selectedCity === "All" || pro.city === selectedCity;
 
-const $ = id =>
-    document.getElementById(id);
+        const matchesCategory =
+            selectedCategory === "All" ||
+            pro.category === selectedCategory;
 
+        const searchableText = (
+            pro.name + " " +
+            pro.service + " " +
+            pro.category + " " +
+            pro.city + " " +
+            pro.description
+        ).toLowerCase();
 
-function toast(message) {
+        const matchesSearch = searchableText.includes(searchQuery);
 
-    $("toast").textContent = message;
+        return matchesCity && matchesCategory && matchesSearch;
+    });
 
-    $("toast").classList.add("show");
+    proGrid.innerHTML = filteredProfessionals.map(function (pro) {
+        return `
+            <article class="pro-card">
+                <div class="pro-top">
+                    <div class="pro-avatar"
+                         style="background:${pro.color}">
+                        ${pro.emoji}
+                    </div>
 
-    clearTimeout(window.toastTimer);
+                    <div class="pro-info">
+                        <h3>${pro.name}</h3>
+                        <p>${pro.service} · ${pro.city}</p>
+                    </div>
 
-    window.toastTimer = setTimeout(() => {
-
-        $("toast").classList.remove("show");
-
-    }, 2600);
-
-}
-
-
-function openModal(id) {
-
-    $(id).classList.add("open");
-
-}
-
-
-function closeModal(id) {
-
-    $(id).classList.remove("open");
-
-}
-
-
-function render() {
-
-    const city = data[currentCity];
-
-
-    $("currentCity").textContent =
-        currentCity;
-
-    $("citySelect").value =
-        currentCity;
-
-    $("prosCity").textContent =
-        currentCity;
-
-
-    /* CATEGORIES */
-
-    $("categoryGrid").innerHTML =
-        city.categories.map(category => `
-
-            <button
-                class="category"
-                data-search="${category[0]}"
-            >
-
-                <div class="category-icon">
-                    ${category[1]}
+                    <span class="verified">✓ LISTED</span>
                 </div>
 
-                <h3>
-                    ${category[0]}
-                </h3>
-
-                <p>
-                    ${category[2]}
+                <p class="pro-description">
+                    ${pro.description}
                 </p>
 
-            </button>
-
-        `).join("");
-
-
-    /* PROFESSIONAL SEARCH */
-
-    const query =
-        currentQuery
-            .toLowerCase()
-            .trim();
-
-
-    const pros =
-        city.pros.filter(pro => {
-
-            return !query ||
-                pro
-                    .join(" ")
-                    .toLowerCase()
-                    .includes(query);
-
-        });
-
-
-    $("resultCount").textContent =
-        `${pros.length} professional${pros.length === 1 ? "" : "s"} found`;
-
-
-    /* PROFESSIONAL CARDS */
-
-    $("prosGrid").innerHTML =
-        pros.map(pro => {
-
-            const index =
-                city.pros.indexOf(pro);
-
-            return `
-
-            <article class="pro-card">
-
-                <div class="pro-top">
-
-                    <div class="avatar">
-                        ${pro[5]}
-                    </div>
-
-                    <div>
-
-                        <div class="pro-name">
-
-                            ${pro[0]}
-
-                            <span class="verified">
-                                ●
-                            </span>
-
-                        </div>
-
-                        <div class="role">
-                            ${pro[1]}
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="rating">
-
-                    <span>★</span>
-
-                    <strong>
-                        ${pro[2]}
-                    </strong>
-
-                    · ${pro[3]} reviews
-
-                </div>
-
-
-                <div class="badges">
-
-                    <span class="badge">
-                        ✓ ID verified
-                    </span>
-
-                    <span class="badge">
-                        ✓ Work verified
-                    </span>
-
-                </div>
-
-
-                <div class="history">
-
-                    <div>
-
-                        <strong>
-                            ${pro[6]}
-                        </strong>
-
-                        <span>
-                            Jobs done
+                <div class="pro-meta">
+                    <div class="pro-rating">
+                        <span>★</span> ${pro.rating}
+                        <span style="color:#858a80;font-weight:400">
+                            (${pro.reviews})
                         </span>
-
                     </div>
 
-
-                    <div>
-
-                        <strong>
-                            ${pro[7]}
-                        </strong>
-
-                        <span>
-                            Experience
-                        </span>
-
+                    <div class="pro-price">
+                        ₹${pro.price}
+                        <small>/ starting</small>
                     </div>
-
-
-                    <div>
-
-                        <strong>
-                            ${pro[8]}
-                        </strong>
-
-                        <span>
-                            Repeat rate
-                        </span>
-
-                    </div>
-
                 </div>
-
-
-                <div class="price">
-
-                    <div>
-
-                        <span>
-                            FINAL PRICE
-                        </span>
-
-                        <br>
-
-                        <strong>
-                            ${pro[4]}
-                        </strong>
-
-                    </div>
-
-                    <span>
-                        Protected
-                    </span>
-
-                </div>
-
 
                 <button
-                    class="book-btn"
-                    data-pro-index="${index}"
-                >
-                    Book securely →
+                    class="book-button"
+                    data-book-id="${pro.id}">
+                    Book this professional →
                 </button>
-
             </article>
+        `;
+    }).join("");
 
-            `;
+    resultCount.textContent =
+        filteredProfessionals.length + " professional" +
+        (filteredProfessionals.length === 1 ? "" : "s");
 
-        }).join("");
-
-
-    $("emptyState")
-        .classList
-        .toggle(
-            "hidden",
-            pros.length !== 0
-        );
-
-
-    /* REVIEWS */
-
-    $("reviewsGrid").innerHTML =
-        city.reviews.map(review => `
-
-            <article class="review">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <p>
-                    “${review[2]}”
-                </p>
-
-                <div class="reviewer">
-
-                    <div class="reviewer-avatar">
-                        ${review[0][0]}
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            ${review[0]}
-                        </strong>
-
-                        <span>
-                            ${review[1]}
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        `).join("");
-
+    emptyMessage.hidden = filteredProfessionals.length !== 0;
 }
 
-
-function setCity(city) {
-
-    if (!data[city]) return;
-
-    currentCity = city;
-
-    localStorage.setItem(
-        "taskmate-city",
-        city
-    );
-
-    currentQuery = "";
-
-    $("searchInput").value = "";
-
-    $("locationMenu")
-        .classList
-        .remove("open");
-
-    render();
-
-    toast(
-        `Showing professionals in ${city}`
-    );
-
-}
-
-
-function performSearch() {
-
-    currentQuery =
-        $("searchInput").value;
-
-    render();
-
-    $("pros").scrollIntoView({
-        behavior: "smooth"
-    });
-
-}
-
-
-function book(index) {
-
-    const pro =
-        data[currentCity].pros[index];
-
-    activePro = pro;
-
-
-    $("bookingName").textContent =
-        pro[0];
-
-    $("bookingRole").textContent =
-        pro[1];
-
-    $("bookingPrice").textContent =
-        pro[4];
-
-
-    $("bookingContent")
-        .classList
-        .remove("hidden");
-
-    $("bookingSuccess")
-        .classList
-        .add("hidden");
-
-
-    openModal(
-        "bookingModal"
-    );
-
-}
-
-
-/* ================= CLICK HANDLERS ================= */
-
-
-document.addEventListener(
-    "click",
-    event => {
-
-        const bookButton =
-            event.target.closest(
-                "[data-pro-index]"
-            );
-
-
-        if (bookButton) {
-
-            book(
-                Number(
-                    bookButton.dataset.proIndex
-                )
-            );
-
-        }
-
-
-        const category =
-            event.target.closest(
-                "[data-search]"
-            );
-
-
-        if (category) {
-
-            currentQuery =
-                category.dataset.search;
-
-            $("searchInput").value =
-                currentQuery;
-
-            render();
-
-            $("pros").scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
-    }
-);
-
-
-/* SEARCH */
-
-$("findBtn").onclick =
-    performSearch;
-
-
-$("searchInput").addEventListener(
-    "keydown",
-    event => {
-
-        if (event.key === "Enter") {
-
-            performSearch();
-
-        }
-
-    }
-);
-
-
-/* CITY */
-
-$("citySelect").onchange =
-    event => {
-
-        setCity(
-            event.target.value
-        );
-
-    };
-
-
-document
-    .querySelectorAll(
-        ".location-menu button"
-    )
-    .forEach(button => {
-
-        button.onclick = () => {
-
-            setCity(
-                button.dataset.city
-            );
-
-        };
-
-    });
-
-
-/* LOCATION MENU */
-
-$("locationBtn").onclick =
-    event => {
-
-        event.stopPropagation();
-
-        $("locationMenu")
-            .classList
-            .toggle("open");
-
-    };
-
-
-document.addEventListener(
-    "click",
-    event => {
-
-        if (
-            !event.target.closest(
-                ".location-btn"
-            ) &&
-            !event.target.closest(
-                ".location-menu"
-            )
-        ) {
-
-            $("locationMenu")
-                .classList
-                .remove("open");
-
-        }
-
-    }
-);
-
-
-/* POPULAR SERVICES */
-
-document
-    .querySelectorAll(
-        ".popular button"
-    )
-    .forEach(button => {
-
-        button.onclick = () => {
-
-            currentQuery =
-                button.dataset.search;
-
-            $("searchInput").value =
-                currentQuery;
-
-            performSearch();
-
-        };
-
-    });
-
-
-/* SHOW ALL */
-
-$("showAllBtn").onclick =
-    () => {
-
-        currentQuery = "";
-
-        $("searchInput").value = "";
-
-        render();
-
-        $("services").scrollIntoView({
-            behavior: "smooth"
+// =====================================
+// CATEGORY FILTERS
+// =====================================
+
+document.querySelectorAll(".category-card").forEach(function (button) {
+    button.addEventListener("click", function () {
+        selectedCategory = button.dataset.category;
+
+        document.querySelectorAll(".category-card").forEach(function (card) {
+            card.classList.remove("active");
         });
 
-    };
+        button.classList.add("active");
 
+        renderProfessionals();
 
-/* CLEAR SEARCH */
+        document.getElementById("professionals").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+});
 
-$("clearSearch").onclick =
-    () => {
+// =====================================
+// SEARCH
+// =====================================
 
-        $("searchInput").value = "";
+searchForm.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-        currentQuery = "";
+    searchQuery = searchInput.value.trim().toLowerCase();
 
-        render();
+    renderProfessionals();
 
-    };
+    document.getElementById("professionals").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 
+    if (searchQuery !== "" && emptyMessage.hidden) {
+        showToast("Here are the matching professionals!");
+    } else if (searchQuery !== "") {
+        showToast("No matches found. Try another search.");
+    }
+});
 
-/* MOBILE */
+// Update results while typing
+searchInput.addEventListener("input", function () {
+    searchQuery = searchInput.value.trim().toLowerCase();
+    renderProfessionals();
+});
 
-$("menuBtn").onclick =
-    () => {
+// Popular search buttons
+document.querySelectorAll(".popular-tag").forEach(function (button) {
+    button.addEventListener("click", function () {
+        const query = button.dataset.search;
 
-        $("mobileNav")
-            .classList
-            .toggle("open");
+        const categoryMap = {
+            cleaning: "Cleaning",
+            plumbing: "Plumbing",
+            electrician: "Electrical"
+        };
 
-    };
+        searchInput.value = query;
+        searchQuery = query;
 
+        selectedCategory = categoryMap[query] || "All";
 
-/* INFO MODAL */
+        document.querySelectorAll(".category-card").forEach(function (card) {
+            card.classList.toggle(
+                "active",
+                card.dataset.category === selectedCategory
+            );
+        });
 
-function info(title, text) {
+        renderProfessionals();
 
-    $("infoTitle").textContent =
-        title;
+        document.getElementById("professionals").scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
 
-    $("infoText").textContent =
-        text;
+// =====================================
+// CITY FILTER
+// =====================================
 
-    openModal("infoModal");
+citySelect.addEventListener("change", function () {
+    renderProfessionals();
 
+    showToast(
+        citySelect.value === "All"
+            ? "Showing all cities."
+            : "Showing professionals in " + citySelect.value + "."
+    );
+});
+
+// Reset all filters
+document.getElementById("clearFilters").addEventListener("click", function () {
+    selectedCategory = "All";
+    searchQuery = "";
+
+    searchInput.value = "";
+    citySelect.value = "All";
+
+    document.querySelectorAll(".category-card").forEach(function (card) {
+        card.classList.toggle(
+            "active",
+            card.dataset.category === "All"
+        );
+    });
+
+    renderProfessionals();
+    showToast("All filters cleared!");
+});
+
+// =====================================
+// BOOKING MODAL
+// =====================================
+
+function openBooking(proId) {
+    selectedProfessional = professionals.find(function (pro) {
+        return pro.id === Number(proId);
+    });
+
+    if (!selectedProfessional) {
+        showToast("Professional not found.");
+        return;
+    }
+
+    selectedProText.textContent =
+        selectedProfessional.name + " · " +
+        selectedProfessional.service + " · Starting at ₹" +
+        selectedProfessional.price;
+
+    bookingModal.hidden = false;
+    document.body.style.overflow = "hidden";
+
+    document.getElementById("customerName").focus();
 }
 
+function closeBooking() {
+    bookingModal.hidden = true;
+    document.body.style.overflow = "";
+    selectedProfessional = null;
+}
 
-$("loginBtn").onclick =
-    () => {
+// Event delegation: works for all rendered booking buttons
+proGrid.addEventListener("click", function (event) {
+    const button = event.target.closest("[data-book-id]");
 
-        info(
-            "Demo login",
-            "This prototype does not use real accounts yet."
+    if (button) {
+        openBooking(button.dataset.bookId);
+    }
+});
+
+document.getElementById("closeModal").addEventListener("click", closeBooking);
+
+bookingModal.addEventListener("click", function (event) {
+    if (event.target === bookingModal) {
+        closeBooking();
+    }
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !bookingModal.hidden) {
+        closeBooking();
+    }
+});
+
+// Set today's date as the earliest booking date
+function getLocalDateString() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
+bookingDate.min = getLocalDateString();
+
+// =====================================
+// SUBMIT A DEMO BOOKING
+// =====================================
+
+bookingForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (!selectedProfessional) {
+        showToast("Please select a professional first.");
+        return;
+    }
+
+    if (!bookingForm.reportValidity()) {
+        return;
+    }
+
+    const booking = {
+        id: Date.now(),
+        professional: selectedProfessional.name,
+        service: selectedProfessional.service,
+        city: selectedProfessional.city,
+        customer: document.getElementById("customerName").value.trim(),
+        phone: document.getElementById("customerPhone").value.trim(),
+        date: bookingDate.value,
+        address: document.getElementById("bookingAddress").value.trim(),
+        createdAt: new Date().toISOString()
+    };
+
+    // Save demo bookings in this browser
+    try {
+        const existingBookings = JSON.parse(
+            localStorage.getItem("taskmateBookings") || "[]"
         );
 
-    };
+        existingBookings.push(booking);
 
-
-$("signupBtn").onclick =
-    () => {
-
-        info(
-            "Create your TaskMate account",
-            "Account creation is simulated in this demo."
+        localStorage.setItem(
+            "taskmateBookings",
+            JSON.stringify(existingBookings)
         );
+    } catch (error) {
+        console.error("Could not save the booking:", error);
+    }
 
-    };
+    closeBooking();
+    bookingForm.reset();
+    bookingDate.min = getLocalDateString();
 
+    showToast("Demo booking saved! No real booking was made.");
+});
 
-$("mobileLogin").onclick =
-    () => {
+// =====================================
+// MOBILE NAVIGATION
+// =====================================
 
-        info(
-            "Demo login",
-            "Real authentication can be connected to a backend."
-        );
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.getElementById("navLinks");
 
-    };
+menuButton.addEventListener("click", function () {
+    const isOpen = navLinks.classList.toggle("open");
 
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.textContent = isOpen ? "×" : "☰";
+});
 
-$("mobileSignup").onclick =
-    () => {
+navLinks.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "☰";
+    });
+});
 
-        info(
-            "Sign up",
-            "Real account creation can be connected to a backend."
-        );
+// =====================================
+// TOAST NOTIFICATIONS
+// =====================================
 
-    };
+function showToast(message) {
+    clearTimeout(toastTimeout);
 
+    toast.textContent = message;
+    toast.classList.add("show");
 
-$("proSignup").onclick =
-    () => {
+    toastTimeout = setTimeout(function () {
+        toast.classList.remove("show");
+    }, 3000);
+}
 
-        info(
-            "Join as a professional",
-            "Professional onboarding can be connected to a real backend."
-        );
+// =====================================
+// START THE WEBSITE
+// =====================================
 
-    };
+renderProfessionals();
 
-
-$("footerPro").onclick =
-    event => {
-
-        event.preventDefault();
-
-        $("proSignup").click();
-
-    };
-
-
-$("helpLink").onclick =
-    event => {
-
-        event.preventDefault();
-
-        info(
-            "TaskMate Help Center",
-            "Use the booking and dispute flows to test the cus
+console.log("TaskMate website loaded successfully!");
